@@ -7,3 +7,7 @@ DATA=yf.download(tickers=b)
 
 # DATAMACD=data[MACD]
 print(DATA)
+
+#stage
+#commit
+#sync
