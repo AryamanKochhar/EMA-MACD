@@ -22,7 +22,7 @@ def indicator(data):
     return data
 
 def signal(data):
-    data["signal_buy"] = np.where((data["EMA1"] < data["Close"]) & (data["Close"] < data["EMA3"]) & (data["MACD"] < 0), 1, 0)
+    data["signal"] = np.where((data["EMA1"] < data["Close"]) & (data["Close"] < data["EMA3"]) & (data["MACD"] < 0), 1,0,-1)
     return data
 
 a = fetchdata(ticker)
