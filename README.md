@@ -1,4 +1,4 @@
-# EMA-MACD
+# EMA-MACD-RSI 
 an indicator involving ema bands +MACD(Moving Average Convergence divergence)+RSI
 the basic idea is to use zero line pullbacks + rsi as a stratergy and give appropriate signals to the user
 
