@@ -9,7 +9,7 @@ class Stock:
         self.ticker=ticker
         self.startdate=startdate
         self.enddate=enddate
-        
+
     def fetch_data(self):
         data = yf.download(self.ticker, start=self.startdate, end=self.enddate)
         data.drop("Adj Close", axis=1, inplace=True)
@@ -31,7 +31,7 @@ class Stock:
         raw_data = self.fetch_data()
         data_indicator = self.indicator(raw_data)
         data_signal = self.signal(data_indicator)
-        data_signal.to_csv('stock_data.csv')
+        # data_signal.to_csv('stock_data.csv') #converting it into a dict exporting it as a dataframe
         return data_signal
 stocks = [
     'AAPL', 'MSFT', 'AMZN', 'GOOGL', 'META', 'TSLA', 'BRK-A', 'BRK-B', 'JPM', 'JNJ',
@@ -44,4 +44,7 @@ enddate = datetime.datetime(2024, 1, 4)
 for stock_symbol in stocks:
     stock_analysis = Stock(stock_symbol, startdate, enddate)
     result = stock_analysis.run_analysis()
+
     print(f"Analysis completed for {stock_symbol}")
+
+
