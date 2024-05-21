@@ -20,7 +20,7 @@ class Broker:
     def login(self, api_key, api_secret):
         self.api_key = api_key
         self.api_secret = api_secret
-        self.client = Client(api_key, api_secret)
+        self.client = Client(api_key, api_secret,testnet=True)
         self.bm = BinanceSocketManager(self.client)
         print("Logged in successfully.")
 
@@ -39,7 +39,7 @@ class Broker:
 
     def start_kline_socket(self, symbol):
         # Correct WebSocket stream type and method
-        self.bm.start_kline_socket(symbol, self.kline_handler, interval=Client.KLINE_INTERVAL_1MINUTE)
+        self.bm.options_kline_socket(symbol, interval="1h")
 
     def start(self):
         self.bm.start()
@@ -66,11 +66,11 @@ if __name__ == "__main__":
     broker.login(api_key, api_secret)
 
     # Get account information
-    account_info = broker.get_account_info()
-    if account_info:
-        print(json.dumps(account_info, indent=4))
+    # # account_info = broker.get_account_info()
+    # if account_info:
+    #     print(json.dumps(account_info, indent=4))
 
-    # List of stock symbols
+    # # List of stock symbols
     stocks = [
         'AAPL'
     ]
