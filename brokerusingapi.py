@@ -31,6 +31,6 @@ def buyorder():
 def recenttradelist():
     reqrecent=requests.get(url="https://testnet.binancefuture.com/fapi/v1/trades",params=paratameters.get("symbol"))
     return reqrecent
-def pricetracker():
+def login_function():
     
     
