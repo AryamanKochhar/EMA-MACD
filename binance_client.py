@@ -35,7 +35,7 @@ class BinanceClient:
             print(response.json())
             return False
 
-    def get_klines(self, symbol, interval='1h', limit=20):
+    def get_klines(self, symbol, interval='1m', limit=20):
         url = f"{self.base_url}/fapi/v1/klines"
         params = {
             "symbol": symbol,
@@ -47,7 +47,7 @@ class BinanceClient:
         # Print only open, high, low, and close values
         # for entry in data:
         #     print(f"Open: {entry[1]}, High: {entry[2]}, Low: {entry[3]}, Close: {entry[4]}")
-        print(data)
+        return data
 
     def get_order_book(self, symbol):
         url = f"{self.base_url}/fapi/v1/ticker/bookTicker"
@@ -59,7 +59,7 @@ class BinanceClient:
         url = f"{self.base_url}/fapi/v1/trades"
         params = {"symbol": symbol}
         response = requests.get(url, params=params)
-        print(response.json())
+        print("get_recent_trades",response.json())
 
     def place_order(self, symbol, side, type, quantity, price=None):
         url = f"{self.base_url}/fapi/v1/order"
@@ -82,7 +82,7 @@ class BinanceClient:
         }
         params["signature"] = signature
         response = requests.post(url, headers=headers, params=params)
-        print(response.json())
+        print("place_order" , response.json())
 
     def get_account_balance(self):
         endpoint = "/fapi/v2/balance"
