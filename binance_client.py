@@ -243,8 +243,8 @@ class BinanceClient:
         print(response.json())
 
 if __name__ == "__main__":
-    api_key = "88e262c5697a9971f573a9c078d0956ad1bc5fb77a81eeae535952c8f8635637"
-    api_secret_key = "b27ce9a1ee11b3cad52b1a7248222feb1394c39c3896fb1c9868ded2bf3a1a6e"
+    api_key = ""
+    api_secret_key = ""
 
     client = BinanceClient(api_key, api_secret_key)
 
